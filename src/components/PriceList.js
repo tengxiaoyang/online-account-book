@@ -1,9 +1,12 @@
 import React from 'react';
-import Ionicon from 'react-ionicons';
+import { IonIcon, addIcons } from 'react-svg-ionicons';
+import bundle from 'react-svg-ionicons/bundles/all';
 import PropTypes from 'prop-types';
 
-const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
-  // const { name, number, isHuman, tags } = props
+addIcons(bundle);
+
+const PriceList = (props) => {
+  const { items, onModifyItem, onDeleteItem } = props
   
   return (
     <ul className="list-group list-grop-flush">
@@ -19,12 +22,12 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
           >
             <span className="col-1 badge badge-primary">
               {/* {item.category.name} */}
-              <Ionicon
+              <IonIcon
                 className="rounded-circle"
                 fontSize="30px"
                 style={{ backgroundColor: '#007bff', padding: '5px'}}
                 color={'#fff'}
-                icon={item.category.iconName}
+                name={item.category.iconName}
               />
 
             </span>
@@ -42,24 +45,24 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
               onClick={() => {onModifyItem(item)}}
             >
               {/* 编辑 */}
-              <Ionicon
+              <IonIcon
                 className="rounded-circle"
                 fontSize="30px"
                 style={{ backgroundColor: '#28a745', padding: '5px'}}
                 color={'#fff'}
-                icon='ios-create-outline'
+                name='create'
               />
             </a>
             <a className="col1"
               onClick={() => {onDeleteItem(item)}}
             >
               {/* 删除 */}
-              <Ionicon
+              <IonIcon
                 className="rounded-circle"
                 fontSize="30px"
                 style={{ backgroundColor: '#dc3545', padding: '5px'}}
                 color={'#fff'}
-                icon='ios-close'
+                name='close'
               />
             </a>
           </li>
@@ -68,23 +71,85 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
     </ul>
   )
 }
-// class NameCard extends React.Component {
+
+// class PriceList extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     // this.handleSubmit = this.handleSubmit.bind(this)
+//     const { items, onModifyItem, onDeleteItem } = props
+//   }
+//   // handleSubmit(event) {
+//   //   if (this.textInput.value.length === 0) {
+//   //     alert("留言内容为空")
+//   //   } else {
+//   //     this.props.onAddComment(this.textInput.value)
+//   //     this.textInput.value = ''
+//   //     event.preventDefault()
+//   //   }
+//   // }
 //   render() {
-//     const { name, number, isHuman, tags } = this.props
+//     const { items, onModifyItem, onDeleteItem } = this.props
 //     return (
-//       <div className="alert alert-success">
-//         <h4 className="alert-heading">{name}</h4>
-//         <ul>
-//           <li>电话：{number}</li>
-//           <li>{ isHuman ? '人类' : '外星生物' }</li>
-//           <hr/>
-//           <p>
-//             { tags.map((tag, index) => (
-//               <span className="badge badge-pill badge-primary" key={index}>{tag}</span>
-//             ))}
-//           </p>
-//         </ul>
-//       </div>
+//       <ul className="list-group list-grop-flush">
+//         {
+//           items.map((item) => (
+//             <li 
+//               className="
+//                 list-group-item 
+//                 d-flex justify-content-between 
+//                 align-items-center
+//               "
+//               key={item.id}
+//             >
+//               <span className="col-1 badge badge-primary">
+//                 {/* {item.category.name} */}
+//                 <IonIcon
+//                   className="rounded-circle"
+//                   fontSize="30px"
+//                   style={{ backgroundColor: '#007bff', padding: '5px'}}
+//                   color={'#fff'}
+//                   name={item.category.iconName}
+//                 />
+  
+//               </span>
+//               <span className="col-5">
+//                 {item.title}
+//               </span>
+//               <span className="col-2 font-weight-bold">
+//                 {(item.category.type === 'income') ? '+' : '-'}
+//                 {item.price}元
+//               </span>
+//               <span className="col-2">
+//                 {item.date}
+//               </span>
+//               <a className="col1"
+//                 onClick={() => {onModifyItem(item)}}
+//               >
+//                 {/* 编辑 */}
+//                 <IonIcon
+//                   className="rounded-circle"
+//                   fontSize="30px"
+//                   style={{ backgroundColor: '#28a745', padding: '5px'}}
+//                   color={'#fff'}
+//                   name='create'
+//                 />
+//               </a>
+//               <a className="col1"
+//                 onClick={() => {onDeleteItem(item)}}
+//               >
+//                 {/* 删除 */}
+//                 <IonIcon
+//                   className="rounded-circle"
+//                   fontSize="30px"
+//                   style={{ backgroundColor: '#dc3545', padding: '5px'}}
+//                   color={'#fff'}
+//                   name='close'
+//                 />
+//               </a>
+//             </li>
+//           ))
+//         }
+//       </ul>
 //     )
 //   }
 // }
@@ -94,4 +159,10 @@ PriceList.propTypes = {
   onModifyItem: PropTypes.func.isRequired,
   onDeleteItem: PropTypes.func.isRequired,
 }
+PriceList.defaultProps = {
+  onModifyItem: () => {
+    
+  }
+}
+
 export default PriceList;

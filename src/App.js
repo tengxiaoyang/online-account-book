@@ -11,7 +11,7 @@ const items = [
       "id": "1",
       "name": "旅行",
       "type": "outcome",
-      "iconName": "ios-plane"
+      "iconName": "airplane"
     }
   },
   {
@@ -23,7 +23,7 @@ const items = [
       "id": "1",
       "name": "旅行",
       "type": "outcome",
-      "iconName": "ios-plane"
+      "iconName": "airplane"
     }
   },
 ]
@@ -47,6 +47,7 @@ function App() {
       </header> */}
       <PriceList 
         items={items}
+        // items="abc"
         onModifyItem={(item) => {alert(item.id)}}
         onDeleteItem={(item) => {alert(item.id)}}
       />
