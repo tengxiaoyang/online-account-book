@@ -16,11 +16,23 @@ const ViewTab = (props) => {
     <ul className="nav nav-tabs nav-fill my-4">
       <li className="nav-item">
         <a className={generateLinkClass(activeTab, LIST_VIEW)} href="#">
+          <IonIcon 
+            className="rounded-circle mr-2" 
+            fontSize="25px"
+            color={'#007bff'}
+            name='paper'
+          />
           列表模式
         </a>
       </li>
       <li className="nav-item">
-        <a className={generateLinkClass(activeTab, LIST_VIEW)} href="#">
+        <a className={generateLinkClass(activeTab, CHART_VIEW)} href="#">
+          <IonIcon 
+            className="rounded-circle mr-2" 
+            fontSize="25px"
+            color={'#007bff'}
+            name='pie'
+          />
           图表模式
         </a>
       </li>
