@@ -2,6 +2,7 @@ import React from 'react';
 import { IonIcon, addIcons } from 'react-svg-ionicons';
 import bundle from 'react-svg-ionicons/bundles/all';
 import PropTypes from 'prop-types';
+import { LIST_VIEW, CHART_VIEW } from '../utility'
 
 addIcons(bundle);
 
@@ -14,12 +15,12 @@ const ViewTab = (props) => {
   return (
     <ul className="nav nav-tabs nav-fill my-4">
       <li className="nav-item">
-        <a className="nav-link active" href="#">
+        <a className={generateLinkClass(activeTab, LIST_VIEW)} href="#">
           列表模式
         </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">
+        <a className={generateLinkClass(activeTab, LIST_VIEW)} href="#">
           图表模式
         </a>
       </li>

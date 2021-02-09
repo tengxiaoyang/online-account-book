@@ -52,7 +52,9 @@ function App() {
         onModifyItem={(item) => {alert(item.id)}}
         onDeleteItem={(item) => {alert(item.id)}}
       />
-      <ViewTab />
+      <ViewTab 
+        activeTab="list"
+      />
     </div>
   );
 }
