@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import PriceList from './components/PriceList';
+import ViewTab from './components/ViewTab';
 const items = [
   {
     "id": 1,
@@ -51,6 +52,7 @@ function App() {
         onModifyItem={(item) => {alert(item.id)}}
         onDeleteItem={(item) => {alert(item.id)}}
       />
+      <ViewTab />
     </div>
   );
 }
